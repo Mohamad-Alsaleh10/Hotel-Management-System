@@ -144,7 +144,7 @@ const navigate = useNavigate();
                         />
                       </svg>
                     </button>
-                    <button className="hover:text-primary">
+                    <button className="hover:text-primary" onClick={()=>navigate(`/hotels/edit/${packageItem.id}`)}>
                       <svg
                         className="fill-current"
                         width="18"

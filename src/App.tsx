@@ -37,6 +37,7 @@ import AddUsers from './pages/users/AddUsers';
 import TokenReset from './pages/Authentication/TokenReset';
 import NewPassword from './pages/Authentication/NewPassword';
 import ViewHotel from './pages/Hotels/ViewHotel';
+import EditHotel from './pages/Hotels/EditHotel';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -100,6 +101,18 @@ function App() {
               <PageTitle title="show Hotel " />
               <DefaultLayout><ViewHotel /></DefaultLayout>
             </>
+            
+          }
+        />
+
+<Route
+          path="/hotels/edit/:id"
+          element={
+            <>
+              <PageTitle title="edit Hotel " />
+              <DefaultLayout><EditHotel /></DefaultLayout>
+            </>
+            
           }
         />
         {/* Hotels  */}
