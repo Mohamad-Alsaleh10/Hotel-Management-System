@@ -1,61 +1,50 @@
+import { Users } from '../../types/users';
 
-import { useNavigate } from 'react-router-dom';
-import { Package } from '../../types/package';
-
-const packageData: Package[] = [
+const packageData: Users[] = [
   {
-    id: '1',
-    hotel_Name: 'sheraton',
-    country_Name: 'damascus',
-    Type_Reservation:'single room',
-    price:10.00,
+    name: 'Mohammed ',
+    email: 'mohammed@Wgmail.com',
+    phone: '09333333',
+    status: 'active',
   },
   {
-    id: '2',
-    hotel_Name: 'sheraton',
-    country_Name: 'damascus',
-    Type_Reservation:'single room',
-    price:10.00,
+    name: 'Ahmad ',
+    email: 'Ahmad@Wgmail.com',
+    phone: '09333333',
+    status: 'active',
   },
   {
-    id: '3',
-    hotel_Name: 'sheraton',
-    country_Name: 'damascus',
-    Type_Reservation:'single room',
-    price:10.00,
+    name: 'Mazen ',
+    email: 'Mazen@Wgmail.com',
+    phone: '09333333',
+    status: 'active',
   },
   {
-    id: '4',
-    hotel_Name: 'sheraton',
-    country_Name: 'damascus',
-    Type_Reservation:'single room',
-    price:10.00,
+    name: 'Shaza ',
+    email: 'Shaza@Wgmail.com',
+    phone: '09333333',
+    status: 'active',
   },
 ];
 
-const HotelTable = () => {
-const navigate = useNavigate();
+const UsersTable = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <div className="max-w-full overflow-x-auto">
         <table className="w-full table-auto">
           <thead>
-
             <tr className="bg-gray-2 text-left dark:bg-meta-4">
-            <th className="py-4 px-4 font-medium text-black dark:text-white">
-                id
-              </th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
-              hotel Name
+              <th className="min-w-[220px] py-4 px-4 font-medium text-black dark:text-white xl:pl-11">
+              name
               </th>
               <th className="min-w-[150px] py-4 px-4 font-medium text-black dark:text-white">
-              country Name
+              email
               </th>
               <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
-              price
+              phone
               </th>
-              <th className="py-4 px-4 font-medium text-black dark:text-white">
-              Type_Reservation
+              <th className="min-w-[120px] py-4 px-4 font-medium text-black dark:text-white">
+              status
               </th>
               <th className="py-4 px-4 font-medium text-black dark:text-white">
                 Actions
@@ -65,40 +54,35 @@ const navigate = useNavigate();
           <tbody>
             {packageData.map((packageItem, key) => (
               <tr key={key}>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark ">
+                <td className="border-b border-[#eee] py-5 px-4 pl-9 dark:border-strokedark xl:pl-11">
                   <h5 className="font-medium text-black dark:text-white">
-                    {packageItem.id}
+                    {packageItem.name}
                   </h5>
                 </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark pl-10">
+                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p className="text-black dark:text-white">
-                    {packageItem.hotel_Name}
+                    {packageItem.email}
+                  </p>
+                </td>
+                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
+                  <p className="text-black dark:text-white">
+                    {packageItem.phone}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <p
-                    className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium `}
+                    className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium ${
+                      packageItem.status === 'active'
+                        ? 'bg-success text-success'
+                        : 'bg-warning text-warning'
+                    }`}
                   >
-                    {packageItem.country_Name}
-                  </p>
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p
-                    className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium `}
-                  >
-                    {packageItem.price}
-                  </p>
-                </td>
-                <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                  <p
-                    className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-sm font-medium `}
-                  >
-                    {packageItem.Type_Reservation}
+                    {packageItem.status}
                   </p>
                 </td>
                 <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                   <div className="flex items-center space-x-3.5">
-                    <button className="hover:text-primary" onClick={()=>navigate(`/hotels/show/${packageItem.id}`)}>
+                    <button className="hover:text-primary">
                       <svg
                         className="fill-current"
                         width="18"
@@ -174,4 +158,4 @@ const navigate = useNavigate();
   );
 };
 
-export default HotelTable;
+export default UsersTable;

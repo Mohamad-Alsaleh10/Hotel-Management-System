@@ -101,7 +101,6 @@ const ECommerce: React.FC = () => {
         <ChartOne />
         <ChartTwo />
         <ChartThree />
-        <MapOne />
       </div>
     </>
   );

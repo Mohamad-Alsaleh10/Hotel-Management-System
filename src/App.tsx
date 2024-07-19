@@ -32,6 +32,11 @@ import AddResturantFood from './pages/resturantfood/AddResturantFood';
 import ResturantFood from './pages/resturantfood/ResturantFood';
 import Payments from './pages/payments/Payments';
 import AddPayments from './pages/payments/AddPayments';
+import Users from './pages/users/Users';
+import AddUsers from './pages/users/AddUsers';
+import TokenReset from './pages/Authentication/TokenReset';
+import NewPassword from './pages/Authentication/NewPassword';
+import ViewHotel from './pages/Hotels/ViewHotel';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -48,10 +53,10 @@ function App() {
   const auth = localStorage.getItem('is auth');
   console.log(auth);
   useEffect(() => {
-    if (auth == 'false'){
+    if (auth == 'false') {
       navigate('/auth/signin');
     }
- 
+
   }, [auth]);
 
   return loading ? (
@@ -59,13 +64,13 @@ function App() {
   ) : (
     <>
       <Routes>
-        
+
         <Route
           index
           element={
             <>
               <PageTitle title="eCommerce Dashboard | syria" />
-             <DefaultLayout> <ECommerce /> </DefaultLayout>
+              <DefaultLayout> <ECommerce /> </DefaultLayout>
             </>
           }
         />
@@ -85,6 +90,15 @@ function App() {
             <>
               <PageTitle title="Add Hotels " />
               <DefaultLayout><AddHotel /></DefaultLayout>
+            </>
+          }
+        />
+                <Route
+          path="/hotels/show/:id"
+          element={
+            <>
+              <PageTitle title="show Hotel " />
+              <DefaultLayout><ViewHotel /></DefaultLayout>
             </>
           }
         />
@@ -198,7 +212,7 @@ function App() {
           element={
             <>
               <PageTitle title="resturant food " />
-              <DefaultLayout><ResturantFood/></DefaultLayout>
+              <DefaultLayout><ResturantFood /></DefaultLayout>
             </>
           }
         />
@@ -212,13 +226,13 @@ function App() {
           }
         />
         {/* resturant food   */}
-                {/* payments  */}
-                <Route
+        {/* payments  */}
+        <Route
           path="/payments"
           element={
             <>
               <PageTitle title="payments" />
-              <DefaultLayout><Payments/></DefaultLayout>
+              <DefaultLayout><Payments /></DefaultLayout>
             </>
           }
         />
@@ -232,6 +246,26 @@ function App() {
           }
         />
         {/* payments   */}
+        {/* users  */}
+        <Route
+          path="/users"
+          element={
+            <>
+              <PageTitle title="users" />
+              <DefaultLayout><Users /></DefaultLayout>
+            </>
+          }
+        />
+        <Route
+          path="/users/add"
+          element={
+            <>
+              <PageTitle title="add users" />
+              <DefaultLayout><AddUsers /></DefaultLayout>
+            </>
+          }
+        />
+        {/* users   */}
         <Route
           path="/calendar"
           element={
@@ -271,6 +305,7 @@ function App() {
             </>
           }
         />
+        
 
 
         <Route
@@ -279,6 +314,33 @@ function App() {
             <>
               <PageTitle title="Signin | syria" />
               <SignIn />
+            </>
+          }
+        />
+                <Route
+          path="/auth/signup"
+          element={
+            <>
+              <PageTitle title="Signup | syria" />
+              <SignUp />
+            </>
+          }
+        />
+                        <Route
+          path="/token"
+          element={
+            <>
+              <PageTitle title="forget password | syria" />
+              <TokenReset />
+            </>
+          }
+        />
+                                <Route
+          path="/password"
+          element={
+            <>
+              <PageTitle title="forget password | syria" />
+              <NewPassword />
             </>
           }
         />
